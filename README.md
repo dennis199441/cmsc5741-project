@@ -4,7 +4,7 @@ for each videos on YouTube platform. We will find out the dominant video categor
 
 ## Dataset
 YouTube-8M video-level features dataset is used in this project. Video-level features are stored as tensorflow.Example protocol buffers. A tensorflow.Example proto is reproduced here in text format:
-```json
+```
 features: {
   feature: {
     key  : "id"
