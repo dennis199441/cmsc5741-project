@@ -1,6 +1,9 @@
 import sys
 from utils import tf, read_data
 
+print("[TEST] sys.stdin: ", sys.stdin)
+
+dataset = read_data(sys.stdin)
 for record in dataset:
 	example = tf.train.Example()
 	example.ParseFromString(record.numpy())
