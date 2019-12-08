@@ -52,3 +52,14 @@ features: {
 1. Count video categories under MapReduce framework using key = category id
 2. Implement Apriori algorithm under MapReduce framework
 3. Implement K-Means algorithm
+
+## Command
+###Task 1
+```
+yarn jar /usr/local/hadoop/share/hadoop/tools/lib/hadoop-streaming-3.1.3.jar \
+-files hdfs:///yt8m-analysis/task1/mapper.py,hdfs:///yt8m-analysis/task1/reducer.py \
+-mapper 'python3 mapper.py' \
+-reducer 'python3 reducer.py' \
+-input /preprocessed_data/category.txt \
+-output /yt8m-analysis/task1/output
+```
