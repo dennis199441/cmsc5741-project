@@ -54,7 +54,7 @@ features: {
 3. Implement K-Means algorithm
 
 ## Command
-###Task 1
+### Task 1
 ```
 yarn jar /usr/local/hadoop/share/hadoop/tools/lib/hadoop-streaming-3.1.3.jar \
 -files hdfs:///yt8m-analysis/task1/mapper.py,hdfs:///yt8m-analysis/task1/reducer.py \
