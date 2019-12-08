@@ -51,4 +51,4 @@ features: {
 ## Approach
 1. Count video categories under MapReduce framework using key = category id
 2. Implement Apriori algorithm under MapReduce framework
-3. Implement K-Means algorithm
+3. Implement K-Means algorith
