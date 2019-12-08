@@ -1,8 +1,7 @@
 import sys
 from utils import tf, read_data
 
-data_path = sys.argv[1]
-dataset = read_data(data_path)
+dataset = read_data(sys.stdin)
 
 for record in dataset:
 	example = tf.train.Example()
