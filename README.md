@@ -46,9 +46,9 @@ features: {
 ## Task
 1. Dominant categories on YouTube
 2. K-th Frequent Itemsets of video categories
-3. Group videos into clusters according to RGB features and audio features
+3. Group videos into clusters according to audio features
 
 ## Approach
 1. Count video categories under MapReduce framework using key = category id
 2. Implement Apriori algorithm under MapReduce framework
-3. Implement K-Means algorith
+3. Implement K-Means algorithm
