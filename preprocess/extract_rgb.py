@@ -6,7 +6,7 @@ path = sys.argv[1]
 dataset = read_data(path)
 
 with open('rgb.txt', 'w') as f:
-	for record in dataset:
+	for record in dataset.take(6134598):
 		example = tf.train.Example()
 		example.ParseFromString(record.numpy())
 		mean_rgb = str(example.features.feature['mean_rgb'].float_list.value).replace("[", "").replace("]", "").replace(", ", " ") + "\n"
