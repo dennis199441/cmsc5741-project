@@ -122,8 +122,8 @@ public class Apriori {
 		System.out.println("Enter one inteser");
 		Scanner in=new Scanner(System.in);	
 	    Configuration conf = new Configuration();
-	    Job job = new Job(conf, "project");
-	    job.setJarByClass(Project.class);
+	    Job job = new Job(conf, "apriori");
+	    job.setJarByClass(Apriori.class);
 	    job.setMapperClass(MapperClass.class);
 	    job.setReducerClass(ReducerClass.class);
 	    job.setOutputKeyClass(Text.class);
