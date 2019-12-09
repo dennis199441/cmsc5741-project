@@ -2,6 +2,7 @@
 
 import sys
 
+threshold = sys.argv[1]
 current_word = None
 current_count = 0
 word = None
@@ -22,11 +23,11 @@ for line in sys.stdin:
      else:
          # first word not matching the word then check the count and print it
           if current_word:
-              if(current_count>100):
+              if(current_count>threshold):
                     print('%s' % (current_word))
           current_count = count
           current_word = word
 
 if current_word == word:
-    if(current_count>100):
+    if(current_count>threshold):
        print('%s' % (current_word))
