@@ -25,6 +25,6 @@ if current_word == word:
     # print('%s\t%s' % (current_word, current_count))
     result.append((current_word, current_count))
 
-result = sorted(result, key=lambda x: x[1])
+result = sorted(result, key=lambda x: x[1], reverse=True)
 for r in result:
-    print('%s\t%s', r)
+    print(r)
