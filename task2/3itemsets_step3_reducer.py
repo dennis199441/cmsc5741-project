@@ -21,15 +21,15 @@ for line in sys.stdin:
      else:
           #count the number of times the 3itemsets appear in transaction table
           if current_word:
-              #if the number is greater than 1000 it is frequent
-              if(current_count>1000):
+              #if the number is greater than 100 it is frequent
+              if(current_count>100):
                     part1,part2,part3 = current_word.split('\t', 2)
                     print('%s\t%s\t%s' % (part1,part2,part3))
           current_count = count
           current_word = word
 
 if current_word == word:
-    if(current_count>1000):
+    if(current_count>100):
        part1,part2,part3 = current_word.split('\t', 2)
        print('%s\t%s\t%s' % (part1,part2,part3))
     
