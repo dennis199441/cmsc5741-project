@@ -44,6 +44,7 @@ public class Apriori {
 			StringTokenizer items2 = new StringTokenizer(value.toString()," \t\n\r\f,.:;?![]'");
 			while (items2.hasMoreTokens()) {
         		list.add(items2.nextToken());
+        		System.out.println("[TEST]: " + list.get(list.size() - 1));
       		}
 
 			count=0;
