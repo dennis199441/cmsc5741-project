@@ -6,7 +6,7 @@ import java.io.IOException;
 
 import org.apache.hadoop.*;
 
-public class Project {
+public class Apriori {
 
 	static int ntrans = 0;
 
