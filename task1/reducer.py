@@ -1,5 +1,6 @@
 import sys
 
+result = []
 current_word = None
 current_count = 0
 word = None
@@ -15,9 +16,15 @@ for line in sys.stdin:
         current_count += count
     else:
         if current_word:
-            print('%s\t%s' % (current_word, current_count))
+           # print('%s\t%s' % (current_word, current_count))
+			result.append((current_word, current_count))
         current_count = count
         current_word = word
 
 if current_word == word:
-    print('%s\t%s' % (current_word, current_count))
+    # print('%s\t%s' % (current_word, current_count))
+	result.append((current_word, current_count))
+
+result = sorted(result, key=lambda x: x[1])
+for r in result:
+	print('%s\t%s', r)
