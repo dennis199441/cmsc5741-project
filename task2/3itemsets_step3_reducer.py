@@ -2,7 +2,7 @@
 
 import sys
 
-threshold = sys.argv[1]
+threshold = int(sys.argv[1])
 current_word = None
 current_count = 0
 word = None
