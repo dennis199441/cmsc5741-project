@@ -9,7 +9,8 @@ def checkCentroidsDistance(centroids, centroids1):
             if abs(centroids[i][j] - centroids1[i][j]) < 1:
                 flag = 0
                 break
-
+        i += 1
+        
     print(flag)
 
 if __name__ == "__main__":
