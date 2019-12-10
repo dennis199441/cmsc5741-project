@@ -1,4 +1,8 @@
 #!/bin/bash
+hadoop fs -rm -r /yt8m-analysis/task3
+
+hadoop fs -put . /yt8m-analysis/task3
+
 i=1
 while :
 do
