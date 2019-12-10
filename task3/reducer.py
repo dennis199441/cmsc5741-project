@@ -30,7 +30,8 @@ def calculateNewCentroids():
         else:
             if count != 0:
                 # print the average of every cluster to get new centroids
-                print(str(sum_x / count) + ", " + str(sum_y / count))
+                # print(str(sum_x / count) + ", " + str(sum_y / count))
+                print(str(count) + ", " + str(count))
 
             current_centroid = centroid_index
             sum_x = x
@@ -39,7 +40,8 @@ def calculateNewCentroids():
     
     # print last cluster's centroids
     if current_centroid == centroid_index and count != 0:
-        print(str(sum_x / count) + ", " + str(sum_y / count))
+        # print(str(sum_x / count) + ", " + str(sum_y / count))
+        print(str(count) + ", " + str(count))
 
 if __name__ == "__main__":
     calculateNewCentroids()
