@@ -1,4 +1,4 @@
-import sys
+import sys, re
 from math import sqrt
 
 # get initial centroids from a txt file and add them in an array
@@ -11,7 +11,7 @@ def getCentroids(filepath):
             if line:
                 try:
             	    line = line.strip()
-            	    cord = line.split(', ')
+            	    cord = re.findall(r"[\'A-Za-z0-9]+", line)
                     # cord[0] is x and cord[1] is y point of a centroid
             	    centroids.append([float(cord[0]), float(cord[1])])
                 except:
@@ -28,7 +28,7 @@ def createClusters(centroids):
     # 
     for line in sys.stdin:
         line = line.strip()
-        cord = line.split(',')
+        cord = re.findall(r"[\'A-Za-z0-9]+", line)
         min_dist = 100000000000000
         index = -1
 
