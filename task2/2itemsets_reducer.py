@@ -21,8 +21,8 @@ for line in sys.stdin:
         if current_word:
             if(current_count>threshold):
                 print('%s' % (current_word))
-            current_count = count
-            current_word = word
+        current_count = count
+        current_word = word
 
 if current_word == word:
     if(current_count>threshold):
