@@ -5,7 +5,7 @@ do
 	yarn jar /usr/local/hadoop/share/hadoop/tools/lib/hadoop-streaming-3.1.3.jar \
 	-files hdfs:///yt8m-analysis/task3/centroids.txt,hdfs:///yt8m-analysis/task3/mapper.py,hdfs:///yt8m-analysis/task3/reducer.py \
 	-mapper 'python3 mapper.py' \
-	-reducer 'python3 reducer.py 10' \
+	-reducer 'python3 reducer.py' \
 	-input /yt8m-analysis/task3/test_dataset.txt \
 	-output /yt8m-analysis/task3/output$i
 
