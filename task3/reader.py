@@ -2,16 +2,17 @@ from mapper import getCentroids
 
 #check if distance of centroids and centroids1 is less than 1
 def checkCentroidsDistance(centroids, centroids1):
+    print(_check(centroids, centroids1))
+
+def _check(centroids, centroids1):
     n = min(len(centroids), len(centroids1))
-    i, flag = 0, 1
+    i = 0
     while i < n:
-        for j in range(2):
-            if abs(centroids[i][j] - centroids1[i][j]) < 1:
-                flag = 0
-                break
+        for j in range(len(centroids[i])):
+            if abs(centroids[i][j] - centroids1[i][j]) >= 1:
+                return 0
         i += 1
-        
-    print(flag)
+    return 1
 
 if __name__ == "__main__":
     centroids = getCentroids('centroids.txt')
