@@ -24,10 +24,7 @@ def calculateNewCentroids():
     # input comes from STDIN
     for line in sys.stdin:
         line = line.strip()
-        print(line)
-        # data = line.split("\t")
-
-        '''
+        data = line.split("\t")
         centroid_index = data[0]
         # convert coord (currently a string) to float
         coord = [float(data[i]) for i in range(1, len(data))]
@@ -51,7 +48,7 @@ def calculateNewCentroids():
     if current_centroid == centroid_index and count != 0:
         printSumm(summ, count)
         # print(str(sum_x / count) + ", " + str(sum_y / count))
-'''
+
 def test_reducer():
     for line in sys.stdin:
         line = line.strip()
