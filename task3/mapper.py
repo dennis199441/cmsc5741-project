@@ -1,5 +1,4 @@
 import sys, re, math
-from random import uniform
 
 # get initial centroids from a txt file and add them in an array
 def getCentroids(filepath):
@@ -31,7 +30,7 @@ def euclidean_dist(arr1, arr2):
 # create clusters based on initial centroids
 def createClusters(centroids):
 	for line in sys.stdin:
-		if uniform(0,1) >= 0.1:
+		if counter % 20 != 0:
 			continue
 		line = line.strip()
 		cord = re.findall(r"[\'A-Za-z0-9.0-9a-z-0-9]+", line)
