@@ -22,6 +22,8 @@ def getCentroids(filepath):
 	return centroids
 
 def euclidean_dist(arr1, arr2):
+	print(arr1)
+	print(arr2)
 	summ = 0
 	for i in range(len(arr1)):
 		summ += (arr1[i] - arr2[i])**2
