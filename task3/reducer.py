@@ -55,6 +55,7 @@ def calculateNewCentroids():
 
 def test_reducer():
     for line in sys.stdin:
+        line = line.strip()
         print(line)
 
 if __name__ == "__main__":
