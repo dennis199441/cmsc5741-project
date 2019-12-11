@@ -12,8 +12,6 @@ def getCentroids(filepath):
 				try:
 					line = line.strip()
 					cord = re.findall(r"[\'A-Za-z0-9.0-9]+", line)
-					print("centroids")
-					print(cord)
 					centroids.append([float(c) for c in cord])
 				except:
 					break
@@ -27,7 +25,7 @@ def getCentroids(filepath):
 def euclidean_dist(arr1, arr2):
 	summ = 0
 	for i in range(len(arr1)):
-		summ += (arr[i] - arr2[i])**2
+		summ += (arr1[i] - arr2[i])**2
 	return math.sqrt(summ)
 
 # create clusters based on initial centroids
