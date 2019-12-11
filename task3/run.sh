@@ -45,7 +45,7 @@ do
 		then
 			rm centroids.txt
 			hadoop fs -copyToLocal /yt8m-analysis/task3/${k}_output$i/part-00000 centroids.txt
-			hadoop fs -copyToLocal /yt8m-analysis/task3/${k}_output$i/part-00000 ./kmeans_result/$k_centroids.txt
+			hadoop fs -copyToLocal /yt8m-analysis/task3/${k}_output$i/part-00000 ./kmeans_result/${k}_centroids.txt
 			break
 		else
 			rm centroids.txt
