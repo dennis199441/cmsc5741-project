@@ -3,56 +3,57 @@ from math import sqrt
 
 # get initial centroids from a txt file and add them in an array
 def getCentroids(filepath):
-    centroids = []
+	centroids = []
 
-    with open(filepath) as fp:
-        line = fp.readline()
-        while line:
-            if line:
-                try:
-            	    line = line.strip()
-            	    cord = re.findall(r"[\'A-Za-z0-9.0-9]+", line)
-                    # cord[0] is x and cord[1] is y point of a centroid
-            	    centroids.append([float(cord[0]), float(cord[1])])
-                except:
-                    break
-            else:
-                break
-            line = fp.readline()
+	with open(filepath) as fp:
+		line = fp.readline()
+		while line:
+			if line:
+				try:
+					line = line.strip()
+					cord = re.findall(r"[\'A-Za-z0-9.0-9]+", line)
+					centroids.append([float(c) for c in cord])
+				except:
+					break
+			else:
+				break
+			line = fp.readline()
 
-    fp.close()
-    return centroids
+	fp.close()
+	return centroids
 
 # create clusters based on initial centroids
 def createClusters(centroids):
-    # 
-    for line in sys.stdin:
-        line = line.strip()
-        cord = re.findall(r"[\'A-Za-z0-9.0-9]+", line)
-        min_dist = 100000000000000
-        index = -1
+	for line in sys.stdin:
+		line = line.strip()
+		cord = re.findall(r"[\'A-Za-z0-9.0-9]+", line)
+		min_dist = 100000000000000
+		index = -1
 
-        for centroid in centroids:
-            try:
-                cord[0] = float(cord[0])
-                cord[1] = float(cord[1])
-            except ValueError:
-                # float was not a number, so silently
-                # ignore/discard this line
-                continue
+		for centroid in centroids:
+			try:
+				cord = [float(c) for c in cord]
+			except ValueError:
+				continue
 
-            # euclidian distance from every point of dataset
-            # to every centroid
-            cur_dist = sqrt(pow(cord[0] - centroid[0], 2) + pow(cord[1] - centroid[1], 2))
+			# euclidian distance from every point of dataset
+			# to every centroid
+			for i in range(len(cord)):
+				summ += pow(cord[i] - centroid[i], 2)
+			cur_dist = sqrt(summ)
 
-            # find the centroid which is closer to the point
-            if cur_dist <= min_dist:
-                min_dist = cur_dist
-                index = centroids.index(centroid)
+			# find the centroid which is closer to the point
+			if cur_dist <= min_dist:
+				min_dist = cur_dist
+				index = centroids.index(centroid)
 
-        var = "%s\t%s\t%s" % (index, cord[0], cord[1])
-        print(var)
+		var = str(index) + "\t"
+		for i in range(len(cord)) - 1:
+			append = str(cord[i]) + "\t"
+			var += append
+		var += str(cord[-1])
+		print(var)
 
 if __name__ == "__main__":
-    centroids = getCentroids('centroids.txt')
-    createClusters(centroids)
+	centroids = getCentroids('centroids.txt')
+	createClusters(centroids)
