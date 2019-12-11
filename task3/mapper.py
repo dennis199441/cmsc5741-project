@@ -12,6 +12,8 @@ def getCentroids(filepath):
 				try:
 					line = line.strip()
 					cord = re.findall(r"[\'A-Za-z0-9.0-9]+", line)
+					print("centroids")
+					print(cord)
 					centroids.append([float(c) for c in cord])
 				except:
 					break
