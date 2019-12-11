@@ -1,5 +1,4 @@
-import sys, re
-from math import sqrt
+import sys, re, math
 
 # get initial centroids from a txt file and add them in an array
 def getCentroids(filepath):
@@ -11,7 +10,7 @@ def getCentroids(filepath):
 			if line:
 				try:
 					line = line.strip()
-					cord = re.findall(r"[\'A-Za-z0-9.0-9a-z0-9]+", line)
+					cord = re.findall(r"[\'A-Za-z0-9.0-9a-z-0-9]+", line)
 					centroids.append([float(cord[0]), float(cord[1])])
 				except:
 					break
@@ -27,14 +26,14 @@ def calculateDistance(centroids):
 	distance_map = {}
 	for line in sys.stdin:
 		line = line.strip()
-		cord = re.findall(r"[\'A-Za-z0-9.0-9a-z0-9]+", line)
-		min_dist = 10000000000000
+		cord = re.findall(r"[\'A-Za-z0-9.0-9a-z-0-9]+", line)
+		min_dist = math.inf
 		target_cluster = 0
 		for k in range(len(centroids)):
 			dist, summ = 0, 0
 			for i in range(len(cord)):
 				summ += pow(float(cord[i]) - centroids[k][i], 2)
-			dist += sqrt(summ)
+			dist += math.sqrt(summ)
 			if dist < min_dist:
 				min_dist = dist
 				target_cluster = k

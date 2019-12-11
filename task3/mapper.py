@@ -1,5 +1,4 @@
-import sys, re
-import math
+import sys, re, math
 
 # get initial centroids from a txt file and add them in an array
 def getCentroids(filepath):
@@ -11,7 +10,7 @@ def getCentroids(filepath):
 			if line:
 				try:
 					line = line.strip()
-					cord = re.findall(r"[\'A-Za-z0-9.0-9a-z0-9]+", line)
+					cord = re.findall(r"[\'A-Za-z0-9.0-9a-z-0-9]+", line)
 					centroids.append([float(c) for c in cord])
 				except:
 					break
@@ -32,7 +31,7 @@ def euclidean_dist(arr1, arr2):
 def createClusters(centroids):
 	for line in sys.stdin:
 		line = line.strip()
-		cord = re.findall(r"[\'A-Za-z0-9.0-9a-z0-9]+", line)
+		cord = re.findall(r"[\'A-Za-z0-9.0-9a-z-0-9]+", line)
 		min_dist = math.inf
 		index = -1
 
