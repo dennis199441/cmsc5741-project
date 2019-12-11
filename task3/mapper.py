@@ -1,5 +1,5 @@
 import sys, re
-from math import sqrt
+import math
 
 # get initial centroids from a txt file and add them in an array
 def getCentroids(filepath):
@@ -22,12 +22,18 @@ def getCentroids(filepath):
 	fp.close()
 	return centroids
 
+def euclidean_dist(arr1, arr2):
+	summ = 0
+	for i in range(len(arr1)):
+		summ += (arr[i] - arr2[i])**2
+	return math.sqrt(summ)
+
 # create clusters based on initial centroids
 def createClusters(centroids):
 	for line in sys.stdin:
 		line = line.strip()
 		cord = re.findall(r"[\'A-Za-z0-9.0-9]+", line)
-		min_dist = 100000000000000
+		min_dist = math.inf
 		index = -1
 
 		for idx, centroid in enumerate(centroids):
@@ -38,13 +44,10 @@ def createClusters(centroids):
 
 			# euclidian distance from every point of dataset
 			# to every centroid
-			summ = 0
-			for i in range(len(cord)):
-				summ += pow(cord[i] - centroid[i], 2)
-			cur_dist = sqrt(summ)
+			cur_dist = euclidean_dist(cord, centroid)
 
 			# find the centroid which is closer to the point
-			if cur_dist <= min_dist:
+			if cur_dist < min_dist:
 				min_dist = cur_dist
 				index = idx
 
