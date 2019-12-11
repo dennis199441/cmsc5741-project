@@ -17,6 +17,8 @@ do
 
 	python3 gen_centroids.py $k 2 10
 
+	echo "Start kmeans algorithm"
+	
 	i=1
 	while :
 	do
@@ -41,6 +43,8 @@ do
 		fi
 		i=$((i+1))
 	done
+	
+	echo "Start elbow method!"
 
 	yarn jar /usr/local/hadoop/share/hadoop/tools/lib/hadoop-streaming-3.1.3.jar \
 	-files hdfs:///yt8m-analysis/task3/centroids.txt,hdfs:///yt8m-analysis/task3/elbow_mapper.py,hdfs:///yt8m-analysis/task3/elbow_reducer.py \
