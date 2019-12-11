@@ -19,7 +19,7 @@ do
 
 	hadoop fs -put -f ./centroids.txt /yt8m-analysis/task3/centroids.txt
 	
-	echo "[DEBUG] START KMEANS ALGORITHM"
+	echo "[DEBUG] START KMEANS ALGORITHM: k=${k}"
 	
 	i=1
 	while :
