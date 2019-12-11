@@ -15,7 +15,7 @@ while :
 do
 	rm centroids*.txt
 
-	python3 gen_centroids.py $k 2 10
+	python3 gen_centroids.py $k 4 10
 
 	hadoop fs -put -f ./centroids.txt /yt8m-analysis/task3/centroids.txt
 	
@@ -28,7 +28,7 @@ do
 		-files hdfs:///yt8m-analysis/task3/centroids.txt,hdfs:///yt8m-analysis/task3/mapper.py,hdfs:///yt8m-analysis/task3/reducer.py \
 		-mapper 'python3 mapper.py' \
 		-reducer 'python3 reducer.py' \
-		-input /yt8m-analysis/task3/test_dataset.txt \
+		-input /yt8m-analysis/task3/test_dataset2.txt \
 		-output /yt8m-analysis/task3/output$i
 
 		rm -f centroids1.txt
@@ -54,10 +54,10 @@ do
 	-files hdfs:///yt8m-analysis/task3/centroids.txt,hdfs:///yt8m-analysis/task3/elbow_mapper.py,hdfs:///yt8m-analysis/task3/elbow_reducer.py \
 	-mapper 'python3 elbow_mapper.py' \
 	-reducer 'python3 elbow_reducer.py' \
-	-input /yt8m-analysis/task3/test_dataset.txt \
+	-input /yt8m-analysis/task3/test_dataset2.txt \
 	-output /yt8m-analysis/task3/elbow_output$k
 
-	hadoop fs -copyToLocal /yt8m-analysis/task3/elbow_output$k/part-00000 elbow$k.txt
+	hadoop fs -copyToLocal /yt8m-analysis/task3/elbow_output$k/part-00000 ./elbow_result/elbow$k.txt
 	
 	k=$((k+1))
 done
