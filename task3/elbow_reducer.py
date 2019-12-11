@@ -9,12 +9,15 @@ cluster = None
 
 for line in sys.stdin:
 	line = line.strip()
+	print(line)
+	'''
 	cluster, dist, count = line.split('\t')
 	try:
 		dist = float(dist)
 		count = float(count)
 	except ValueError:
 		continue
+		
 	if current_cluster == cluster:
 		current_dist += dist
 		current_count += count
@@ -48,3 +51,4 @@ for i in range(n):
 	sum_dist += (dist_map[i] / cnt_map[i])
 avg_dist = sum_dist / n
 print("%s" % str(avg_dist))
+'''
