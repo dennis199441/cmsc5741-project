@@ -30,8 +30,9 @@ def euclidean_dist(arr1, arr2):
 def calculateDistance(centroids):
 	count_map = {}
 	distance_map = {}
-	counter = 0
+	counter = -1
 	for line in sys.stdin:
+		counter += 1
 		if counter % 20 != 0:
 			continue
 		line = line.strip()

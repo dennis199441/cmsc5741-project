@@ -29,7 +29,9 @@ def euclidean_dist(arr1, arr2):
 
 # create clusters based on initial centroids
 def createClusters(centroids):
+	counter = -1
 	for line in sys.stdin:
+		counter += 1
 		if counter % 20 != 0:
 			continue
 		line = line.strip()
