@@ -40,7 +40,7 @@ do
 
 		rm -f centroids1.txt
 		hadoop fs -copyToLocal /yt8m-analysis/task3/${k}_output$i/part-00000 centroids1.txt
-		seeiftrue=`python3 reader.py 0.0001`
+		seeiftrue=`python3 reader.py 0.001`
 		if [ $seeiftrue = 1 ]
 		then
 			rm centroids.txt
