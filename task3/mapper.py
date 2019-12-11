@@ -49,7 +49,7 @@ def createClusters(centroids):
 				index = centroids.index(centroid)
 
 		var = str(index) + "\t"
-		for i in range(len(cord)) - 1:
+		for i in range(len(cord) - 1):
 			append = str(cord[i]) + "\t"
 			var += append
 		var += str(cord[-1])
