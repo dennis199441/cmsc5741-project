@@ -10,7 +10,7 @@ else
 	rm ./elbow_result/*
 fi
 
-k=2
+k=1
 while :
 do
 	rm centroids*.txt
@@ -47,6 +47,8 @@ do
 	done
 	
 	echo "[DEBUG] START ELBOW METHOD"
+	
+	hadoop fs -put -f ./centroids.txt /yt8m-analysis/task3/centroids.txt
 
 	yarn jar /usr/local/hadoop/share/hadoop/tools/lib/hadoop-streaming-3.1.3.jar \
 	-files hdfs:///yt8m-analysis/task3/centroids.txt,hdfs:///yt8m-analysis/task3/elbow_mapper.py,hdfs:///yt8m-analysis/task3/elbow_reducer.py \
