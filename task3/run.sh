@@ -19,7 +19,7 @@ do
 
 	hadoop fs -put -f ./centroids.txt /yt8m-analysis/task3/centroids.txt
 	
-	echo "Start kmeans algorithm"
+	echo "[DEBUG] START KMEANS ALGORITHM"
 	
 	i=1
 	while :
@@ -46,7 +46,7 @@ do
 		i=$((i+1))
 	done
 	
-	echo "Start elbow method!"
+	echo "[DEBUG] START ELBOW METHOD"
 
 	yarn jar /usr/local/hadoop/share/hadoop/tools/lib/hadoop-streaming-3.1.3.jar \
 	-files hdfs:///yt8m-analysis/task3/centroids.txt,hdfs:///yt8m-analysis/task3/elbow_mapper.py,hdfs:///yt8m-analysis/task3/elbow_reducer.py \

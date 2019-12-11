@@ -38,6 +38,7 @@ def createClusters(centroids):
 
 			# euclidian distance from every point of dataset
 			# to every centroid
+			summ = 0
 			for i in range(len(cord)):
 				summ += pow(cord[i] - centroid[i], 2)
 			cur_dist = sqrt(summ)
