@@ -11,7 +11,7 @@ def getCentroids(filepath):
 			if line:
 				try:
 					line = line.strip()
-					cord = re.findall(r"[\'A-Za-z0-9.0-9]+", line)
+					cord = re.findall(r"[\'A-Za-z0-9.0-9a-z0-9]+", line)
 					centroids.append([float(cord[0]), float(cord[1])])
 				except:
 					break
@@ -27,7 +27,7 @@ def calculateDistance(centroids):
 	distance_map = {}
 	for line in sys.stdin:
 		line = line.strip()
-		cord = re.findall(r"[\'A-Za-z0-9.0-9]+", line)
+		cord = re.findall(r"[\'A-Za-z0-9.0-9a-z0-9]+", line)
 		min_dist = 10000000000000
 		target_cluster = 0
 		for k in range(len(centroids)):

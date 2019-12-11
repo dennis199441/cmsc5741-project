@@ -22,7 +22,7 @@ if [ $seeiftrue = 1 ]
 then
 	rm centroids.txt
 	hadoop fs -copyToLocal /yt8m-analysis/task3/output$i/part-00000 centroids.txt
-	break
+	# break
 else
 	rm centroids.txt
 	hadoop fs -copyToLocal /yt8m-analysis/task3/output$i/part-00000 centroids.txt
