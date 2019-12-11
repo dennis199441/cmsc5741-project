@@ -53,5 +53,10 @@ def calculateNewCentroids():
         printSumm(summ, count)
         # print(str(sum_x / count) + ", " + str(sum_y / count))
 
+def test_reducer():
+    for line in sys.stdin:
+        print(line)
+
 if __name__ == "__main__":
-    calculateNewCentroids()
+    # calculateNewCentroids()
+    test_reducer()
