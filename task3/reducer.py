@@ -24,8 +24,9 @@ def calculateNewCentroids():
     # input comes from STDIN
     for line in sys.stdin:
         line = line.strip()
-        data = line.split("\t")
-        print(data[0])
+        print(line)
+        # data = line.split("\t")
+
         '''
         centroid_index = data[0]
         # convert coord (currently a string) to float
