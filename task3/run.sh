@@ -17,6 +17,8 @@ do
 
 	python3 gen_centroids.py $k 2 10
 
+	hadoop fs -put -f ./centroids.txt /yt8m-analysis/task3/centroids.txt
+	
 	echo "Start kmeans algorithm"
 	
 	i=1
