@@ -1,4 +1,5 @@
 import sys, re, math
+from random import uniform
 
 # get initial centroids from a txt file and add them in an array
 def getCentroids(filepath):
@@ -31,6 +32,8 @@ def calculateDistance(centroids):
 	count_map = {}
 	distance_map = {}
 	for line in sys.stdin:
+		if uniform(0,1) >= 0.1:
+			continue
 		line = line.strip()
 		cord = re.findall(r"[\'A-Za-z0-9.0-9a-z-0-9]+", line)
 		min_dist = math.inf
