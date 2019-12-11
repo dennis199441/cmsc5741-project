@@ -30,7 +30,7 @@ def createClusters(centroids):
 		min_dist = 100000000000000
 		index = -1
 
-		for centroid in centroids:
+		for idx, centroid in enumerate(centroids):
 			try:
 				cord = [float(c) for c in cord]
 			except ValueError:
@@ -46,7 +46,7 @@ def createClusters(centroids):
 			# find the centroid which is closer to the point
 			if cur_dist <= min_dist:
 				min_dist = cur_dist
-				index = centroids.index(centroid)
+				index = idx
 
 		var = str(index) + "\t"
 		for i in range(len(cord) - 1):

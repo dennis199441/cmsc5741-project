@@ -28,6 +28,7 @@ def calculateNewCentroids():
 
         # parse the input of mapper.py
         # centroid_index, x, y = line.split('\t')
+        line = line.strip()
         data = line.split("\t")
         centroid_index = data[0]
         # convert coord (currently a string) to float
@@ -59,5 +60,5 @@ def test_reducer():
         print(line)
 
 if __name__ == "__main__":
-    # calculateNewCentroids()
-    test_reducer()
+    calculateNewCentroids()
+    # test_reducer()
