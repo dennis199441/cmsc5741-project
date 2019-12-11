@@ -10,7 +10,7 @@ else
 	rm ./elbow_result/*
 fi
 
-k=1
+k=2
 while :
 do
 	rm centroids*.txt
