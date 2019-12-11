@@ -2,6 +2,8 @@
 hadoop fs -rm -r /yt8m-analysis/task3
 
 hadoop fs -put . /yt8m-analysis/task3
+
+python3 gen_centroids.py 4 2 10
 	
 i=1
 while :
