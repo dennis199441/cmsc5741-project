@@ -65,7 +65,7 @@ do
 	-input /yt8m-analysis/task3/test_dataset.txt \
 	-output /yt8m-analysis/task3/elbow_output$k
 
-	hadoop fs -copyToLocal /yt8m-analysis/task3/elbow_output$k/part-00000 ./elbow_result/elbow$k.txt
+	hadoop fs -copyToLocal /yt8m-analysis/task3/elbow_output$k/part-00000 ./elbow_result/${k}_elbow.txt
 	
 	k=$((k+1))
 done
