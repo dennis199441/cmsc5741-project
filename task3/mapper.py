@@ -35,12 +35,12 @@ def createClusters(centroids):
 		min_dist = math.inf
 		index = -1
 
+		try:
+			cord = [float(c) for c in cord]
+		except ValueError:
+			continue
+				
 		for idx, centroid in enumerate(centroids):
-			try:
-				cord = [float(c) for c in cord]
-			except ValueError:
-				continue
-
 			# euclidian distance from every point of dataset
 			# to every centroid
 			cur_dist = euclidean_dist(cord, centroid)

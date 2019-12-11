@@ -21,6 +21,12 @@ def getCentroids(filepath):
 	fp.close()
 	return centroids
 
+def euclidean_dist(arr1, arr2):
+	summ = 0
+	for i in range(len(arr1)):
+		summ += (arr1[i] - arr2[i])**2
+	return math.sqrt(summ)
+
 def calculateDistance(centroids):
 	count_map = {}
 	distance_map = {}
@@ -28,16 +34,19 @@ def calculateDistance(centroids):
 		line = line.strip()
 		cord = re.findall(r"[\'A-Za-z0-9.0-9a-z-0-9]+", line)
 		min_dist = math.inf
-		target_cluster = 0
-		for k in range(len(centroids)):
-			dist, summ = 0, 0
-			for i in range(len(cord)):
-				summ += pow(float(cord[i]) - centroids[k][i], 2)
-			dist += math.sqrt(summ)
-			if dist < min_dist:
-				min_dist = dist
-				target_cluster = k
-		var = "%s\t%s\t%s" % (target_cluster, min_dist, 1)
+		index = -1
+		try:
+			cord = [float(c) for c in cord]
+		except ValueError:
+			continue
+
+		for idx, centroid in enumerate(centroids):
+			cur_dist = euclidean_dist(cord, centroid)
+			if cur_dist < min_dist:
+				min_dist = cur_dist
+				index = idx
+
+		var = "%s\t%s" % (index, min_dist)
 		print(var)
 
 if __name__ == "__main__":
