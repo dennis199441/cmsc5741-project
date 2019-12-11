@@ -36,20 +36,20 @@ do
 		-mapper 'python3 mapper.py' \
 		-reducer 'python3 reducer.py' \
 		-input /yt8m-analysis/task3/test_dataset2.txt \
-		-output /yt8m-analysis/task3/$k_output$i
+		-output /yt8m-analysis/task3/${k}_output$i
 
 		rm -f centroids1.txt
-		hadoop fs -copyToLocal /yt8m-analysis/task3/$k_output$i/part-00000 centroids1.txt
+		hadoop fs -copyToLocal /yt8m-analysis/task3/${k}_output$i/part-00000 centroids1.txt
 		seeiftrue=`python3 reader.py 1`
 		if [ $seeiftrue = 1 ]
 		then
 			rm centroids.txt
-			hadoop fs -copyToLocal /yt8m-analysis/task3/$k_output$i/part-00000 centroids.txt
-			hadoop fs -copyToLocal /yt8m-analysis/task3/$k_output$i/part-00000 ./kmeans_result/$k_centroids.txt
+			hadoop fs -copyToLocal /yt8m-analysis/task3/${k}_output$i/part-00000 centroids.txt
+			hadoop fs -copyToLocal /yt8m-analysis/task3/${k}_output$i/part-00000 ./kmeans_result/$k_centroids.txt
 			break
 		else
 			rm centroids.txt
-			hadoop fs -copyToLocal /yt8m-analysis/task3/$k_output$i/part-00000 centroids.txt
+			hadoop fs -copyToLocal /yt8m-analysis/task3/${k}_output$i/part-00000 centroids.txt
 		fi
 		i=$((i+1))
 	done
