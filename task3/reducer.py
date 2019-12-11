@@ -19,6 +19,7 @@ def calculateNewCentroids():
         except ValueError:
             # float was not a number, so silently
             # ignore/discard this line
+            print("ValueError")
             continue
 
         # this IF-switch only works because Hadoop sorts map output
