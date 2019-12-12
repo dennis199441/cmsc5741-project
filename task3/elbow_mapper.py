@@ -32,9 +32,6 @@ def calculateDistance(centroids):
 	distance_map = {}
 	counter = -1
 	for line in sys.stdin:
-		counter += 1
-		if counter % 20 != 0:
-			continue
 		line = line.strip()
 		cord = re.findall(r"[\'A-Za-z0-9.0-9a-z-0-9]+", line)
 		min_dist = math.inf
