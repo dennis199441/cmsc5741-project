@@ -24,7 +24,7 @@ while :
 do
 	rm centroids*.txt
 
-	python3 gen_centroids.py $k 2 2
+	python3 gen_centroids.py $k 128 2
 
 	hadoop fs -put -f ./centroids.txt /yt8m-analysis/task3/centroids.txt
 	
