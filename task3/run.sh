@@ -7,6 +7,7 @@ if [ ! -d "./elbow_result" ]
 then
 	mkdir ./elbow_result
 else
+	echo "elbow_result exists!"
 #	rm ./elbow_result/*
 fi
 
@@ -14,6 +15,7 @@ if [ ! -d "./kmeans_result" ]
 then
 	mkdir ./kmeans_result
 else
+	echo "kmeans_result exists"
 #	rm ./kmeans_result/*
 fi
 
