@@ -7,17 +7,17 @@ if [ ! -d "./elbow_result" ]
 then
 	mkdir ./elbow_result
 else
-	rm ./elbow_result/*
+#	rm ./elbow_result/*
 fi
 
 if [ ! -d "./kmeans_result" ]
 then
 	mkdir ./kmeans_result
 else
-	rm ./kmeans_result/*
+#	rm ./kmeans_result/*
 fi
 
-k=1
+k=17
 while :
 do
 	rm centroids*.txt
