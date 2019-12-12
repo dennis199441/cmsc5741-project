@@ -19,12 +19,12 @@ else
 #	rm ./kmeans_result/*
 fi
 
-k=17
+k=1
 while :
 do
 	rm centroids*.txt
 
-	python3 gen_centroids.py $k 128 2
+	python3 gen_centroids.py $k 2 2
 
 	hadoop fs -put -f ./centroids.txt /yt8m-analysis/task3/centroids.txt
 	
