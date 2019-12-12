@@ -3,19 +3,19 @@ hadoop fs -rm -r /yt8m-analysis/task3
 
 hadoop fs -put . /yt8m-analysis/task3
 
-if [ ! -d "./2d_elbow_result" ]
+if [ ! -d "./elbow_result" ]
 then
-	mkdir ./2d_elbow_result
+	mkdir ./elbow_result
 else
-	echo "2d_elbow_result exists!"
+	echo "elbow_result exists!"
 #	rm ./elbow_result/*
 fi
 
-if [ ! -d "./2d_kmeans_result" ]
+if [ ! -d "./kmeans_result" ]
 then
-	mkdir ./2d_kmeans_result
+	mkdir ./kmeans_result
 else
-	echo "2d_kmeans_result exists"
+	echo "kmeans_result exists"
 #	rm ./kmeans_result/*
 fi
 
@@ -47,7 +47,7 @@ do
 		then
 			rm centroids.txt
 			hadoop fs -copyToLocal /yt8m-analysis/task3/${k}_output$i/part-00000 centroids.txt
-			hadoop fs -copyToLocal /yt8m-analysis/task3/${k}_output$i/part-00000 ./2d_kmeans_result/${k}_centroids.txt
+			hadoop fs -copyToLocal /yt8m-analysis/task3/${k}_output$i/part-00000 ./kmeans_result/${k}_centroids.txt
 			break
 		else
 			rm centroids.txt
@@ -67,7 +67,7 @@ do
 	-input /preprocessed_data/audio.txt \
 	-output /yt8m-analysis/task3/elbow_output$k
 
-	hadoop fs -copyToLocal /yt8m-analysis/task3/elbow_output$k/part-00000 ./2d_elbow_result/${k}_elbow.txt
+	hadoop fs -copyToLocal /yt8m-analysis/task3/elbow_output$k/part-00000 ./elbow_result/${k}_elbow.txt
 	
 	k=$((k+1))
 done
