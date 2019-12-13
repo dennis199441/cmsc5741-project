@@ -1,3 +1,4 @@
+# Implemented mapreduced based apriori algorithm and executed using different support value
 # support value = 10
 hadoop fs -rm -r /yt8m-analysis/task2/2itemsets_10_output/
 
